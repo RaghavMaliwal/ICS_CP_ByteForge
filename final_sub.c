@@ -1,13 +1,10 @@
-// C program to find Determinant 
-// of a matrix
+// C program to find Determinant of a matrix
 #include <stdio.h>
 #include<stdlib.h>
 
-void getCofactor(float **mat, float **temp, 
-				int p, int q, int n)
+void getCofactor(float **mat, float **temp, int p, int q, int n)
 {
 	int i = 0, j = 0;
-
 	for (int row = 0; row < n; row++)
 	{
 		for (int col = 0; col < n; col++) 
@@ -44,8 +41,7 @@ float determinantOfMatrix(float **mat, int n)
 	for (int f = 0; f < n; f++) 
 	{
 		getCofactor(mat, temp, 0, f, n);
-		D += sign * mat[0][f]
-			* determinantOfMatrix(temp, n - 1);
+		D += sign * mat[0][f]* determinantOfMatrix(temp, n - 1);
 		sign = -sign;
 	}
 
@@ -68,7 +64,6 @@ int main()
         }
     }
 	// Function call
-	printf("Determinant of the matrix is : %.2f",
-			determinantOfMatrix(mat, n));
+	printf("Determinant of the matrix is : %.4f",determinantOfMatrix(mat, n));
 	return 0;
 }
