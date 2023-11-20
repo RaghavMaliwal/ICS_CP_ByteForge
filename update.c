@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define size 20
 
 void print(int **a,int n,int m){
 
@@ -43,7 +44,7 @@ for(int i=0;i<n;i++){
 print(difference,n,m);
 }
 
-void scalar_multiplication_of_matrix(int n, int m,int **matrix_1,int **matrix_2){
+void scalar_multiplication_of_matrix(int n, int m,int **matrix_1){
 
 int k;
 scanf("%d",&k);
@@ -96,7 +97,7 @@ for(int i=0;i<n;i++){
 }
 print(transpose,n,m); 
 }
-void cofact(int n,int **matrix_1){
+void cofactor_of_a_element(int n,int **matrix_1){
 
      int **cofactor=(int)malloc(n*sizeof(int));
     for(int i=0;i<n;i++)
@@ -104,8 +105,8 @@ void cofact(int n,int **matrix_1){
 
     printf("enter the element you want a cofactor matrix of\n");
     int p,q;
-    
     scanf("%d %d",&p,&q);
+    
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<n;j++)
@@ -135,126 +136,20 @@ void cofact(int n,int **matrix_1){
             
         }
     }
-    for(int i=0;i<n-1;i++)
-    {
-        for(int j=0;j<n-1;j++)
-        {
-            printf("%d ",cofactor[i][j]);
-        }
-        printf("\n");
-    }
+
+    printf("Cofactor of the given element is : %d",determinant_of_a_matrix(cofactor,n-1));
+    
+    // for(int i=0;i<n-1;i++)
+    // {
+    //     for(int j=0;j<n-1;j++)
+    //     {
+    //         printf("%d ",cofactor[i][j]);
+    //     }
+    //     printf("\n");
+    // }
 }
 
-#include<stdio.h>
-#include<math.h>
-/*******
-Function that calculates the determinant of a square matrix using Gauss-Elimination :
-Pass the square matrix as a parameter, and calculate and return the dete
-Parameters: order(n),matrix[n][n]
-********/
-/*double determinant(int n, double a[n][n]){
-    double det=1;
-    int i;
-    int swapCount=gaussElimination(n,n,a);
-    for(i=0;i<n;i++){
-        det =det*a[i][i];
-    }
-    return det*pow(-1,swapCount);
-}
-/********
-Function that perform Gauss Elimination
-Pass the square matrix as a parameter, and calculate and store the upperTriangular(Gauss-Eliminated Matrix) in it
-Parameters: rows(m),columns(n),matrix[m][n]
-********/
-/*int gaussElimination(int m, int n, double a[m][n]){
-    int i,j,k;
-    int swapCount=0;
-    for(i=0;i<m-1;i++){
-        //Partial Pivoting
-        for(k=i+1;k<m;k++){
-            //If diagonal element(absolute vallue) is smaller than any of the terms below it
-            if(fabs(a[i][i])<fabs(a[k][i])){
-                //Swap the rows
-                swapCount++;
-                for(j=0;j<n;j++){                
-                    double temp;
-                    temp=a[i][j];
-                    a[i][j]=a[k][j];
-                    a[k][j]=temp;
-                }
-            }
-        }
-        //Begin Gauss Elimination
-        for(k=i+1;k<m;k++){
-            double  term=a[k][i]/ a[i][i];
-            for(j=0;j<n;j++){
-                a[k][j]=a[k][j]-term*a[i][j];
-            }
-        }
-    }
-    return swapCount;       
-}
-/*******
-Function that reads the elements of a matrix row-wise
-Parameters: rows(m),columns(n),matrix[m][n] 
-*******/
-/*void readMatrix(int m, int n, double matrix[m][n]){
-    int i,j;
-    for(i=0;i<m;i++){
-        for(j=0;j<n;j++){
-            scanf("%lf",&matrix[i][j]);
-        }
-    } 
-}
-/*******
-Function that prints the elements of a matrix row-wise
-Parameters: rows(m),columns(n),matrix[m][n] 
-*******/
-/*void printMatrix(int m, int n, double matrix[m][n]){
-    int i,j;
-    for(i=0;i<m;i++){
-        for(j=0;j<n;j++){
-            printf("%lf\t",matrix[i][j]);
-        }
-        printf("\n");
-    } 
-}
-/*******
-Function that copies the elements of a matrix to another matrix
-Parameters: rows(m),columns(n),matrix1[m][n] , matrix2[m][n]
-*******/
-/*void copyMatrix(int m, int n, double matrix1[m][n], double matrix2[m][n]){
-    int i,j;
-    for(i=0;i<m;i++){
-        for(j=0;j<n;j++){
-            matrix2[i][j]=matrix1[i][j];
-        }
-    } 
-}
- 
-int main(){
-    int n,i,j;
-    printf("Enter the order of the matrix:\n(No. of rows/columns (n))\n");
-    scanf("%d",&n);
-    //Declare a matrix to store the user given matrix
-    double a[n][n];
-    printf("\nEnter the elements of matrix:\n");
-    readMatrix(n,n,a); 
-    printf("\nThe determinant using Gauss Eliminiation is:\n\n%lf\n",determinant(n,a));
-     
-}*/
-
-/*#include <stdio.h>
-#define size 20
-void show_matrix(int adj[size][size], int n) {
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%d ", adj[i][j]);
-        }
-        printf("\n");
-    }
-}
-int determinant(int mat[size][size], int n) {
+int determinant_of_a_matrix(int mat[size][size], int n) {
     int det = 0;
     if (n == 1) {
         return mat[0][0];
@@ -283,9 +178,9 @@ void getCofactor(int mat[size][size], int temp[size][size], int p, int q, int n)
         }
     }
 }
-void adjoint(int mat[size][size], int adj[size][size], int n) {
+void adjoint(int mat[size][size], float adj[size][size], int n) {
     if (n == 1) {
-        adj[0][0] = 1;
+        adj[0][0] = 1.0;
         return;
     }
     int sign = 1;
@@ -298,27 +193,23 @@ void adjoint(int mat[size][size], int adj[size][size], int n) {
         }
     }
 }
-int main() {
-    int n;
-    printf("Order of the matrix\nEnter the no of rows/columns(n) : ");
-    scanf("%d",&n);
-    printf("Enter the elements of the matrix:\n");
-    int mat[size][size];
-    int p1=0,p2;
-    while( p1 < n) {
-        for (p2=0; p2 < n; p2++) {
-            scanf("%d", &mat[p1][p2]);
-        }
-    p1++;
+
+void inverse_of_a_matrix(int matrix1[size][size],float adj[size][size],int n){
+    
+int k=determinant_of_a_matrix(matrix1, n);
+   
+if(k == 0){
+        printf("Given Matrix is NOT INVERTIBLE");
     }
-    printf("\nInput matrix:\n");
-    int adj[size][size];
-    show_matrix(mat, n);
-    printf("\nAdjoint matrix:\n");
-    adjoint(mat, adj, n);
-    show_matrix(adj, n);
-    return 0;
-}*/
+else{
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%.4f ", (adj[i][j])/k);
+        }
+        printf("\n");
+    }
+}
+}
 
 int main() {
 
