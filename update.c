@@ -98,7 +98,7 @@ for(int i=0;i<n;i++){
 print(product,n,m);
 }
 
-void transpose_of_a_matrix(int n, int m,int **matrix_1){
+void transpose_of_matrix(int n, int m,int **matrix_1){
 
 int **transpose=(int)malloc(n*sizeof(int));
 for(int k=0;k<n;k++)
@@ -176,7 +176,7 @@ void get_Cofactor(float **mat, float **temp, int p, int q, int n){
 	}
 }
 
-float determinant_of_Matrix(float **matrix_1, int n)
+float determinant_of_matrix(float **matrix_1, int n)
 {
 	float D = 0; 
     
@@ -203,7 +203,7 @@ float determinant_of_Matrix(float **matrix_1, int n)
 }
 
 
-void adjoint_of_a_matrix(int **matrix_1, int n) {
+void adjoint_of_matrix(int **matrix_1, int n) {
 
     float **adjoint = (float**)malloc(n*sizeof(float*));
     for(int i=0; i<n; i++){
@@ -231,7 +231,7 @@ void adjoint_of_a_matrix(int **matrix_1, int n) {
     print(adjoint,n,m);
 }
 
-void inverse_of_a_matrix(int matrix1[size][size],float adj[size][size],int n){
+void inverse_of_matrix(int matrix1[size][size],float adj[size][size],int n){
     
 int k=determinant_of_a_matrix(matrix1, n);
    
