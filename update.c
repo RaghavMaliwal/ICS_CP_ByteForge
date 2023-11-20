@@ -82,7 +82,7 @@ for(int i=0;i<n;i++){
 print(product,n,m);
 }
 
-void transpose_of_matrix(int n, int m,int **matrix_1){
+void transpose_of_a_matrix(int n, int m,int **matrix_1){
 
 int **transpose=(int)malloc(n*sizeof(int));
 for(int k=0;k<n;k++)
@@ -138,15 +138,6 @@ void cofactor_of_a_element(int n,int **matrix_1){
     }
 
     printf("Cofactor of the given element is : %d",determinant_of_a_matrix(cofactor,n-1));
-    
-    // for(int i=0;i<n-1;i++)
-    // {
-    //     for(int j=0;j<n-1;j++)
-    //     {
-    //         printf("%d ",cofactor[i][j]);
-    //     }
-    //     printf("\n");
-    // }
 }
 
 int determinant_of_a_matrix(int mat[size][size], int n) {
@@ -178,9 +169,13 @@ void getCofactor(int mat[size][size], int temp[size][size], int p, int q, int n)
         }
     }
 }
-void adjoint(int mat[size][size], float adj[size][size], int n) {
+
+void adjoint_of_a_matrix(int mat[size][size], int n) {
+
+    float adjoint[size][size];
+    
     if (n == 1) {
-        adj[0][0] = 1.0;
+        adjoint[0][0] = 1.0;
         return;
     }
     int sign = 1;
@@ -189,9 +184,11 @@ void adjoint(int mat[size][size], float adj[size][size], int n) {
         for (int j = 0; j < n; j++) {
             getCofactor(mat, temp, i, j, n);
             sign = ((i + j) % 2 == 0) ? 1 : -1;
-            adj[j][i] = sign * determinant(temp, n - 1);
+            adjoint[j][i] = sign * determinant(temp, n - 1);
         }
     }
+
+    print(adjoint,n,m);
 }
 
 void inverse_of_a_matrix(int matrix1[size][size],float adj[size][size],int n){
@@ -238,10 +235,6 @@ for(int i=0;i<n;i++){
         scanf("%d",&matrix_2[i][j]);
     }
 }
-
-sum_of_matrix(n,m,matrix_1,matrix_2);
-difference_of_matrix(n,m,matrix_1,matrix_2);
-
 
 return 0;
 }
