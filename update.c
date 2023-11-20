@@ -63,7 +63,23 @@ for(int i=0;i<n;i++){
 print(scalar,n,m);
 }
 
-void multiplication_of_matrix(int n, int m,int **matrix_1,int **matrix_2){
+void PRE_multiplication_of_matrix(int n, int m,int **matrix_1,int **matrix_2){
+
+int **product=(int)malloc(n*sizeof(int));
+for(int k=0;k<n;k++)
+    product[k]=(int*)malloc(m*sizeof(int));
+
+for(int i=0;i<n;i++){
+    for(int j=0;j<m;j++){
+        int z=0;
+        for(int k=0;k<n;k++){
+        z=z+matrix_2[i][k]*matrix_1[k][j];
+    }
+        product[i][j]=z;
+    }
+}
+
+void POST_multiplication_of_matrix(int n, int m,int **matrix_1,int **matrix_2){
 
 int **product=(int)malloc(n*sizeof(int));
 for(int k=0;k<n;k++)
@@ -140,49 +156,73 @@ void cofactor_of_a_element(int n,int **matrix_1){
     printf("Cofactor of the given element is : %d",determinant_of_a_matrix(cofactor,n-1));
 }
 
-int determinant_of_a_matrix(int mat[size][size], int n) {
-    int det = 0;
-    if (n == 1) {
-        return mat[0][0];
-    }
-    int temp[size][size];
-    int sign = 1;
-    for (int f = 0; f < n; f++) {
-        getCofactor(mat, temp, 0, f, n);
-        det += sign * mat[0][f] * determinant(temp, n - 1);
-        sign = -sign;
-    }
-    return det;
-}
-void getCofactor(int mat[size][size], int temp[size][size], int p, int q, int n) {
+void get_Cofactor(float **mat, float **temp, int p, int q, int n){
+	
     int i = 0, j = 0;
-    for (int row = 0; row < n; row++) {
-        for (int col = 0; col < n; col++) {
-            if (row != p && col != q) {
-                temp[i][j++] = mat[row][col];
-
-                if (j == n - 1) {
-                    j = 0;
-                    i++;
-                }
-            }
-        }
-    }
+	for (int row = 0; row < n; row++)
+    {
+		for (int col = 0; col < n; col++) 
+		{
+			if (row != p && col != q) 
+			{
+				temp[i][j++] = mat[row][col];
+				if (j == n - 1) 
+				{
+					j = 0;
+					i++;
+				}
+			}
+		}
+	}
 }
 
-void adjoint_of_a_matrix(int mat[size][size], int n) {
+float determinant_of_Matrix(float **matrix_1, int n)
+{
+	float D = 0; 
+    
+	// Base case
+	if (n == 1)
+		return matrix_1[0][0];
 
-    float adjoint[size][size];
+	// To store cofactors
+	float **temp = (float**)malloc(n*sizeof(float*));
+    for(int i=0; i<n; i++){
+        temp[i] = (float*)malloc(n*sizeof(float));
+    }
+
+	int sign = 1; 
+	for (int f = 0; f < n; f++) 
+	{
+		get_Cofactor(matrix_1, temp, 0, f, n);
+		D += sign * matrix_1[0][f]
+			* determinantOfMatrix(temp, n - 1);
+		sign = -sign;
+	}
+
+	return D;
+}
+
+
+void adjoint_of_a_matrix(int **matrix_1, int n) {
+
+    float **adjoint = (float**)malloc(n*sizeof(float*));
+    for(int i=0; i<n; i++){
+        adjoint[i] = (float*)malloc(n*sizeof(float));
+    }
     
     if (n == 1) {
         adjoint[0][0] = 1.0;
         return;
     }
     int sign = 1;
-    int temp[size][size];
+    float **temp = (float**)malloc(n*sizeof(float*));
+    for(int i=0; i<n; i++){
+        temp[i] = (float*)malloc(n*sizeof(float));
+    }
+    
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            getCofactor(mat, temp, i, j, n);
+            get_Cofactor(matrix_1, temp, i, j, n);
             sign = ((i + j) % 2 == 0) ? 1 : -1;
             adjoint[j][i] = sign * determinant(temp, n - 1);
         }
