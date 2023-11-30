@@ -37,7 +37,7 @@ void print(float **a,int n,int m)
     }
     printf(" Do you want to perform another operation on this matrix?\n IF YES:ENTER 'Y' ELSE 'N' ");
     char confirmation_specifier;
-    scanf("%c",&confirmation_specifier);
+    scanf(" %c",&confirmation_specifier);
     
     if(confirmation_specifier=='Y'||confirmation_specifier=='y')
     {
