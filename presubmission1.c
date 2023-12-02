@@ -184,7 +184,7 @@ float cofactor_of_a_element(int n)
     for(int i=0;i<n;i++)
         cofactor[i]=(float*)malloc(n*sizeof(float));
 
-    printf("enter the element you want a cofactor matrix of\n");
+    printf("Enter the element you want a cofactor matrix of\n");
     int p,q;
     scanf("%d %d",&p,&q);
     
@@ -326,7 +326,7 @@ void inverse_of_matrix(int n)
     float k=determinant_of_matrix(matrix_1, n);
     if(k == 0)
     {
-        printf("Given Matrix is NOT INVERTIBLE\n");
+        printf("Given Matrix is Not Invertible\n");
         return;
     }
     
@@ -390,7 +390,7 @@ int input(int choice,int n,int m)
                  
         case 2 : 
         {
-            printf("Do you want difference_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want difference_of_matrix\n If yes : Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             
@@ -492,7 +492,7 @@ int input(int choice,int n,int m)
         
         case 5 :
         {
-            printf("Do you want scalar_multiplication_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want scalar_multiplication_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             
@@ -528,7 +528,7 @@ int input(int choice,int n,int m)
         
         case 7 :
         {
-            printf("Do you want cofactor_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want cofactor_of_matrix\n If yes:Enter 'Y' else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             if(confirmation_specifier == 'Y'||confirmation_specifier == 'y')
@@ -629,7 +629,7 @@ printf("                              A project made by ADITYA,KRISH,RAGHAV,SOHO
     printf("\nExit                 : 0\nSum                  : 1\nDifference           : 2\nPreMultiplication    : 3\nPostMultiplication   : 4\nScalar Multipication : 5\nTranspose            : 6\nCofactor             : 7\nDeterminant          : 8\nAdjoint              : 9\nInverse              : 10\n");
     int input_specifier;
     ctrl=1;
-    printf("\nENTER CHOICE OF OPERATION: ");
+    printf("\nEnter choice of operation: ");
     scanf("%d",&input_specifier);
     
     while(input_specifier!=0)
@@ -655,7 +655,7 @@ printf("                              A project made by ADITYA,KRISH,RAGHAV,SOHO
         }
         else 
         {
-            printf("\nENTER CHOICE OF OPERATION: ");
+            printf("\nEnter choice of operatin: ");
             scanf("%d",&input_specifier);
             input(input_specifier,row,column);
         
