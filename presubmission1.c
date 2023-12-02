@@ -35,10 +35,9 @@ void print(float **a,int n,int m)
         }
         printf("\n");
     }
-    printf(" Do you want to perform another operation on this matrix?\n IF YES:ENTER 'Y' ELSE 'N' ");
+    printf(" Do you want to perform another operation on this matrix?\n If Yes:Enter 'Y' Else 'N' ");
     char confirmation_specifier;
     scanf(" %c",&confirmation_specifier);
-    
     if(confirmation_specifier=='Y'||confirmation_specifier=='y')
     {
         //now we already have a matrix i.e. matrix 1 and hence ctrl=0
@@ -66,45 +65,35 @@ void print(float **a,int n,int m)
     }
     return;
 }
-
 //sum
 void sum_of_matrix(int n, int m,float **matrix_2)
 {
-
 float **sum=(float**)malloc(n*sizeof(float*));
 for(int k=0;k<n;k++){
     sum[k]=(float*)malloc(m*sizeof(float));
 }
-
 for(int i=0;i<n;i++){
     for(int j=0;j<m;j++){
             sum[i][j]=matrix_1[i][j]+matrix_2[i][j]; 
         }
     }
-
 print(sum,n,m);
 free(sum);
 }
-
 //difference
 void difference_of_matrix(int n, int m,float **matrix_2)
 {
-
 float **difference=(float**)malloc(n*sizeof(float*));
 for(int k=0;k<n;k++)
     difference[k]=(float*)malloc(m*sizeof(float));
-    
 for(int i=0;i<n;i++){
     for(int j=0;j<m;j++){
-        
         difference[i][j]=matrix_1[i][j]-matrix_2[i][j];
-        
     }
 }
 print(difference,n,m);
 free(difference);
 }
-
 //scalar multiplication
 void scalar_multiplication_of_matrix(int n, int m,float k)
 {
@@ -366,7 +355,7 @@ int input(int choice,int n,int m)
     {
         case 1 : 
         {
-              printf("Do you want sum_of_matrix\nIF YES:ENTER 'Y' ELSE 'N' ");
+              printf("Do you want sum_of_matrix\nIf Yes:Enter 'Y' Else 'N' ");
               char confirmation_specifier;
               scanf(" %c",&confirmation_specifier);
               
@@ -434,7 +423,7 @@ int input(int choice,int n,int m)
         
         case 3 :
         {
-            printf("Do you want PreMultiplication_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want PreMultiplication_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             
@@ -469,7 +458,7 @@ int input(int choice,int n,int m)
         
         case 4 :
         {
-            printf("Do you want PostMultiplication_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want PostMultiplication_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
 
@@ -523,7 +512,7 @@ int input(int choice,int n,int m)
         
         case 6 :
         {
-            printf("Do you want transpose_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want transpose_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             
@@ -559,7 +548,7 @@ int input(int choice,int n,int m)
 
         case 8 :
         {   
-            printf("Do you want determinant_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want determinant_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             if(confirmation_specifier == 'Y'||confirmation_specifier == 'y')
@@ -580,7 +569,7 @@ int input(int choice,int n,int m)
         
         case 9 :
         {
-            printf("Do you want adjoint_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want adjoint_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             if(confirmation_specifier == 'Y'||confirmation_specifier == 'y')
@@ -600,7 +589,7 @@ int input(int choice,int n,int m)
         
         case 10 :
         {
-            printf("Do you want inverse_of_matrix\n IF YES:ENTER 'Y' ELSE 'N' ");
+            printf("Do you want inverse_of_matrix\n If Yes:Enter 'Y' Else 'N' ");
             char confirmation_specifier;
             scanf(" %c",&confirmation_specifier);
             if(confirmation_specifier == 'Y'||confirmation_specifier == 'y')
@@ -647,7 +636,7 @@ printf("                              A project made by ADITYA,KRISH,RAGHAV,SOHO
     {
         if(ctrl==1)
         {
-                printf("\nENTER NUMBER OF ROWS AND COLUMNS :\n");
+                printf("\nEnter number of Rows and Columns :\n");
                 scanf("%d%d",&row,&column);
                 printf("Enter %d X %d Matrix\n",row,column);
                 matrix_1=(float**)malloc(row*sizeof(float*));
