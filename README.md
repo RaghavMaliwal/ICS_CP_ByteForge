@@ -32,6 +32,6 @@ How to Execute the code:-
 6. After that depending on the operation, the I/O panel continues to take input and print required output.
 7. Also after displaying the result, the answer can be reused according to the user's wish, with the corresponding input instructions
 
-*******Environment used********* - We have executed and run the code with the gcc compiler in VS Code, only in C language.
+*******Environment used******* - We have executed and run the code with the gcc compiler in VS Code, only in C language.
 
 
