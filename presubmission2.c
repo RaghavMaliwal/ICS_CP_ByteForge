@@ -38,7 +38,7 @@ void print(float **result,int n,int m)
         }
         printf("\n");
     }
-    printf(" Do you want to perform another operation on this matrix?\n IF YES:ENTER 'Y' ELSE 'N' ");
+    printf("Do you want to perform another operation on this matrix?\n IF YES:ENTER 'Y' ELSE 'N' ");
     char confirmation_specifier;
     scanf(" %c",&confirmation_specifier);
     
@@ -195,7 +195,7 @@ float cofactor_of_a_element(int n)
     for(int i=0;i<n;i++)
         cofactor[i]=(float*)malloc(n*sizeof(float));
 
-    printf("enter the element you want a cofactor matrix of\n");
+    printf("Enter the indices of the element you want a cofactor matrix of\n");
     int p,q;
     scanf("%d %d",&p,&q);
     --p;
@@ -338,7 +338,7 @@ void inverse_of_matrix(int n)
     float k=determinant_of_matrix(matrix_1, n);
     if(k == 0)
     {
-        printf("Given Matrix is NOT INVERTIBLE\n");
+        printf("\nGiven Matrix is NOT INVERTIBLE\n");
         return;
     }
     
