@@ -1,6 +1,6 @@
 # ICS_Project
 
-Aditya Jha - B23MT1007, Maliwal Raghav Kamleshkumar - B23EE__, Sohom Sarkar - B23ME1068, Krish Patel - B23CY1010
+Aditya Jha - B23MT1007, Maliwal Raghav Kamleshkumar - B23EE1039, Sohom Sarkar - B23ME1068, Krish Patel - B23CY1010
 
 Greetings,
 Here we have our project of Matrices Operations Toolkit.
